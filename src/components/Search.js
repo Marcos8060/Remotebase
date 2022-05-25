@@ -1,19 +1,25 @@
 import React, { useState } from 'react'
+import StudentList from './StudentList';
+
 
 function Search() {
+
     const [name,setName] = useState('')
     const [ date,setDate] = useState('')
-    const [students,setStudents] = useState([])
+    const [people,setPeople] = useState([])
 
     const handleSubmit = (e) =>{
         e.preventDefault()
 
-        const student = { name , date};
-        setStudents((students) =>(
-            [...students, student]
+        const person = { name, date}
+        setPeople((people) =>(
+          [...people, person]
         ))
+
+        setName('')
+        setDate('')
     }
-    console.log(students);
+
 
   return (
     <>
@@ -30,10 +36,7 @@ function Search() {
           type="date" />
          <button onClick={handleSubmit}>Submit</button>
      </form>
-
-     <div>
-         <p>{name}</p>
-     </div>
+     <StudentList people={people}/>
     </>
   )
 }

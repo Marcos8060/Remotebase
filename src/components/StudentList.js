@@ -1,8 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-function StudentList() {
+function StudentList({ people }) {
   return (
-    <div>StudentList</div>
+    <>
+    {people.map((student) =>(
+       <div key={student.id}>
+        <p>{ student.name }</p>
+       </div>
+    ))}
+    </>
   )
 }
 
